@@ -1,0 +1,5 @@
+@each $key, $value in $theme-colors {
+  .fill-#{$key} {
+    fill: $value !important;
+  }
+}

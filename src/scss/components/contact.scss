@@ -1,0 +1,43 @@
+.contact {
+  @include transitions(background-color, color, opacity);
+
+  align-items: center;
+
+  color: inherit;
+
+  &:hover {
+    color: theme-color('light');
+    text-decoration: none;
+
+    background-color: theme-color('primary');
+  }
+
+  &:active {
+    opacity: 0.7;
+  }
+}
+
+.contact-avatar {
+  margin-left: map-get($spacers, 3);
+}
+
+.contact-status {
+  @include transitions(color);
+
+  color: theme-color('secondary');
+  font-size: $small-font-size;
+}
+
+.contact:hover .contact-status {
+  color: theme-color('light');
+}
+
+.contact-body {
+  padding: map-get($spacers, 4);
+}
+
+.contact-title {
+  @extend .h6;
+
+  margin-bottom: map-get($spacers, 1);
+}

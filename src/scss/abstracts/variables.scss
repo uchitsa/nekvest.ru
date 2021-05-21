@@ -1,0 +1,27 @@
+$theme-colors: (
+  'gray': #efefef,
+  'primary': #4545a5,
+  'secondary': #6c757d,
+  'success': #28a745,
+  'info': #17a2b8,
+  'warning': #ffc107,
+  'danger': #dc3545,
+  'light': #fbfbfb,
+  'dark': #343a40,
+  'white': #fff,
+);
+
+$grid-breakpoints: (
+  xs: 0,
+  lg: 992px,
+  xxl: 1600px
+);
+
+$container-max-widths: (
+  xxl: 1540px
+);
+
+$enable-shadows: true;
+$border-radius: 1rem;
+$transition-time: 0.2s;
+$headings-font-weight: 700;

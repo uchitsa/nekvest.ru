@@ -1,0 +1,10 @@
+@mixin transitions($transitionProperties...) {
+  $transitions: ();
+
+  @each $transition in $transitionProperties {
+    $transitionItem: $transition $transition-time;
+    $transitions: append($transitions, $transitionItem, comma);
+  }
+
+  transition: $transitions;
+}

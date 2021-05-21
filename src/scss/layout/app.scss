@@ -1,0 +1,62 @@
+$app-header-height: 4.5rem;
+
+.app {
+  padding-bottom: $app-header-height;
+
+  @include media-breakpoint-up(lg) {
+    grid-template-areas:
+      'header content'
+      'aside content';
+    grid-template-rows: $app-header-height calc(100% - #{$app-header-height});
+    grid-template-columns: minmax(464px, 1fr) 2fr;
+
+    padding-bottom: 0;
+  }
+}
+
+.app-header {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 5;
+
+  height: $app-header-height;
+
+  @include media-breakpoint-up(lg) {
+    position: static;
+
+    grid-area: header;
+  }
+}
+
+.app-aside {
+  @include media-breakpoint-up(lg) {
+    grid-area: aside;
+  }
+}
+
+.app-content {
+  @include media-breakpoint-up(lg) {
+    grid-area: content;
+  }
+}
+
+.app-chat {
+  padding-bottom: $app-header-height;
+
+  @include media-breakpoint-up(lg) {
+    padding-bottom: 0;
+  }
+}
+
+.app-chat-footer {
+  position: fixed;
+  right: 0;
+  bottom: $app-header-height;
+  left: 0;
+
+  @include media-breakpoint-up(lg) {
+    position: static;
+  }
+}
