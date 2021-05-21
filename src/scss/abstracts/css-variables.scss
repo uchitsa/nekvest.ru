@@ -1,15 +1,18 @@
 :root {
   --app-header-nav-icon-size: 1.25em;
+  --app-header-height: 53px;
 }
 
 @media (min-width: 340px) {
   :root {
     --app-header-nav-icon-size: 2em;
+    --app-header-height: 64px;
   }
 }
 
 @include media-breakpoint-up('sm') {
   :root {
     --app-header-nav-icon-size: 1.25em;
+    --app-header-height: 55px;
   }
 }

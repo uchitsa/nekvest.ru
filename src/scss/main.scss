@@ -21,6 +21,9 @@
 @import "bootstrap/scss/utilities/display";
 @import "bootstrap/scss/utilities/flex";
 @import 'abstracts/css-variables';
+@import 'abstracts/functions';
 @import 'base/base';
 @import 'layout/app';
-@import 'components/appHeader';
+@import 'components/AppHeader';
+@import 'components/Avatar';
+@import 'components/Profile';

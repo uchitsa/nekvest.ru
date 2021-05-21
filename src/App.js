@@ -1,5 +1,6 @@
 import { Nav } from 'react-bootstrap';
 import { Heart, Star, QuestionCircle, Person } from 'react-bootstrap-icons';
+import avatar from './images/avatar.jpg';
 import './scss/main.scss';
 
 function App() {
@@ -38,6 +39,15 @@ function App() {
           </Nav>
         </div>
       </header>
+      <div className="Profile pt-3">
+        <div className="container-md">
+          <h2 className="h2 mb-3">Профиль</h2>
+          <div className="Profile__content">
+            <img className="Profile__avatar Avatar" src={avatar} alt="Аватар" />
+            <div className="Profile__name">Дмитрий Бердников</div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

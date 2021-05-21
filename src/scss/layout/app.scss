@@ -1,1 +1,9 @@
 // test
+.App {
+  height: 100vh;
+  padding-bottom: var(--app-header-height);
+
+  @include media-breakpoint-up('sm') {
+    padding-top: var(--app-header-height);
+  }
+}
