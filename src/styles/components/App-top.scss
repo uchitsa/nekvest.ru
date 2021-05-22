@@ -3,6 +3,8 @@
 }
 
 .App-top__container {
+  @extend .container-lg;
+
   display: flex;
   align-items: center;
   justify-content: space-between;

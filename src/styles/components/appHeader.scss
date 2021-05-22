@@ -2,11 +2,13 @@
   position: fixed;
   bottom: 0;
   left: 0;
+  z-index: 5;
 
   width: 100%;
   overflow: hidden;
 
   background-color: theme-color('white');
+
   border-top: 1px solid $border-color;
 
   @include media-breakpoint-up('sm') {
@@ -21,9 +23,11 @@
 .App-header__container {
   @extend .container-lg;
 
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  @include media-breakpoint-up('sm') {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
 
 .App-header__logo {
@@ -49,10 +53,20 @@
   }
 }
 
-.App-header__nav {
+.App-header__list {
   display: flex;
-  flex-grow: 1;
+  align-items: center;
+  margin: 0;
+  padding: 0;
 
+  list-style: none;
+
+  @include media-breakpoint-up('sm') {
+    align-items: flex-start;
+  }
+}
+
+.App-header__nav {
   @include media-breakpoint-up('sm') {
     flex-grow: 0;
     margin-right: -1rem;
@@ -68,10 +82,27 @@
 }
 
 .App-header__nav-link {
+  display: block;
+  padding: 0.5rem 1rem;
+
   text-align: center;
 
-  @media (max-width: 380px) {
+  @media (max-width: 420px) {
     padding-right: 0.5rem;
     padding-left: 0.5rem;
+  }
+}
+
+.App-header__nav-item--main {
+  @include media-breakpoint-up('sm') {
+    order: -1;
+  }
+
+  .App-header__icon {
+    @include media-breakpoint-down('xs') {
+      $size: 2.5em;
+      width: $size;
+      height: $size;
+    }
   }
 }
