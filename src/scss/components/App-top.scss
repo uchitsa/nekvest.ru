@@ -4,6 +4,7 @@
 
 .App-top__container {
   display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 
@@ -11,4 +12,10 @@
   @extend .h2;
 
   margin-bottom: 0;
+}
+
+.App-top__icon {
+  $size: 1.5em;
+  width: $size;
+  height: $size;
 }
