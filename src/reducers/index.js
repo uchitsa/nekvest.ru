@@ -3,51 +3,60 @@ import { combineReducers } from 'redux';
 import { handleActions } from 'redux-actions';
 import * as actions from '../actions';
 
-const tasks = handleActions(
+const placesFetchingState = handleActions(
   {
-    [actions.addTask](state, { payload: { task } }) {
-      const { byId, allIds } = state;
+    [actions.fetchPlacesRequest]() {
+      return 'requested';
+    },
+    [actions.fetchPlacesFailure]() {
+      return 'failed';
+    },
+    [actions.fetchPlacesSuccess]() {
+      return 'finished';
+    },
+  },
+  'none',
+);
+
+const places = handleActions(
+  {
+    [actions.fetchPlacesSuccess](state, { payload }) {
+      const placesMapped = payload.places.map((place) => {
+        const {
+          _id,
+          name,
+          mapPosition: { coordinates },
+        } = place;
+        return {
+          _id,
+          name,
+          coordinates,
+        };
+      });
       return {
-        byId: { ...byId, [task.id]: task },
-        allIds: [task.id, ...allIds],
+        byId: _.keyBy(placesMapped, '_id'),
+        allIds: placesMapped.map((t) => t._id), // eslint-disable-line no-underscore-dangle
       };
     },
-    [actions.removeTask](state, { payload: { id } }) {
-      const { byId, allIds } = state;
-      return {
-        byId: _.omit(byId, id),
-        allIds: _.without(allIds, id),
-      };
-    },
-    // BEGIN (write your solution here)
-    [actions.toggleTaskState](state, { payload: { id } }) {
-      const { byId, allIds } = state;
-      const updateTaskState = (taskState) =>
-        taskState === 'active' ? 'finish' : 'active';
-      const updated = _.update(byId, `[${id}].state`, updateTaskState);
-      return {
-        byId: updated,
-        allIds,
-      };
-    },
-    // END
+    // [actions.addTaskSuccess](state, { payload: { task } }) {
+    //   const { byId, allIds } = state;
+    //   return {
+    //     byId: { ...byId, [task.id]: task },
+    //     allIds: [task.id, ...allIds],
+    //   };
+    // },
+    // [actions.removeTaskSuccess](state, { payload: { id } }) {
+    //   const { byId, allIds } = state;
+    //   return {
+    //     byId: _.omit(byId, id),
+    //     allIds: _.without(allIds, id),
+    //   };
+    // },
   },
   { byId: {}, allIds: [] },
 );
 
-const text = handleActions(
-  {
-    [actions.addTask]() {
-      return '';
-    },
-    [actions.updateNewTaskText](_state, { payload }) {
-      return payload.text;
-    },
-  },
-  '',
-);
-
 export default combineReducers({
-  tasks,
-  text,
+  places,
+  placesFetchingState,
 });

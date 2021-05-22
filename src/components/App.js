@@ -13,8 +13,9 @@ import {
   NavLink,
 } from 'react-router-dom';
 import logo from '../images/logo.svg';
-import Form from './Form';
+// import Form from './Form';
 import Map from './Map/Map';
+import Profile from './Profile';
 import debounce from '../helpers/debounce';
 
 const setCssVhProperty = () => {
@@ -89,8 +90,11 @@ const App = () => {
             </div>
           </div> */}
           <Switch>
-            <Route path="/about">
+            {/* <Route path="/about">
               <Form />
+            </Route> */}
+            <Route path="/profile">
+              <Profile />
             </Route>
             <Route path="/">
               <Map />

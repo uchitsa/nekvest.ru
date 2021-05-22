@@ -49,7 +49,7 @@
   font-size: 8px;
 
   @media (min-width: 340px) {
-    font-size: 10px;
+    font-size: 12px;
   }
 }
 
@@ -86,11 +86,16 @@
   padding: 0.5rem 1rem;
 
   text-align: center;
+  text-decoration: none;
 
   @media (max-width: 420px) {
     padding-right: 0.5rem;
     padding-left: 0.5rem;
   }
+}
+
+.App-header__nav-link:hover {
+  text-decoration: none;
 }
 
 .App-header__nav-item--main {

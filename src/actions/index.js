@@ -1,6 +1,19 @@
 import { createAction } from 'redux-actions';
+import axios from 'axios';
+import routes from '../routes';
 
-export const addTask = createAction('TASK_ADD');
-export const updateNewTaskText = createAction('NEW_TASK_TEXT_UPDATE');
-export const removeTask = createAction('TASK_REMOVE');
-export const toggleTaskState = createAction('TASK_STATE_TOGGLE');
+export const fetchPlacesRequest = createAction('Places_FETCH_REQUEST');
+export const fetchPlacesSuccess = createAction('Places_FETCH_SUCCESS');
+export const fetchPlacesFailure = createAction('Places_FETCH_FAILURE');
+
+export const fetchPlaces = () => async (dispatch) => {
+  dispatch(fetchPlacesRequest());
+  try {
+    const url = routes.placesUrl();
+    const response = await axios.get(url);
+    dispatch(fetchPlacesSuccess({ places: response.data.places }));
+  } catch (e) {
+    dispatch(fetchPlacesFailure());
+    throw e;
+  }
+};
