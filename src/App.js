@@ -13,7 +13,6 @@ import './scss/main.scss';
 const vh = window.innerHeight * 0.01;
 // Then we set the value in the --vh custom property to the root of the document
 document.documentElement.style.setProperty('--vh', `${vh}px`);
-alert(vh);
 // https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
 
 function App() {
@@ -35,7 +34,7 @@ function App() {
               <Nav.Item className="App-header__nav-item">
                 <Nav.Link className="App-header__nav-link" href="/popular">
                   <Heart className="App-header__icon" />
-                  <span className="App-header__link-text">Лучшие</span>
+                  <span className="App-header__link-text">Избранное</span>
                 </Nav.Link>
               </Nav.Item>
               <Nav.Item className="App-header__nav-item">

@@ -4,6 +4,7 @@
   left: 0;
 
   width: 100%;
+  overflow: hidden;
 
   background-color: theme-color('white');
   border-top: 1px solid $border-color;
@@ -54,6 +55,7 @@
 
   @include media-breakpoint-up('sm') {
     flex-grow: 0;
+    margin-right: -1rem;
   }
 }
 
