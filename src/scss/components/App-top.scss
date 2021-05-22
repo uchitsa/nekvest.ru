@@ -1,0 +1,14 @@
+.App-top {
+  @extend .py-3;
+}
+
+.App-top__container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.App-top__title {
+  @extend .h2;
+
+  margin-bottom: 0;
+}

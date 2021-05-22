@@ -5,6 +5,7 @@
 
   width: 100%;
 
+  background-color: theme-color('white');
   border-top: 1px solid $border-color;
 
   @include media-breakpoint-up('sm') {
