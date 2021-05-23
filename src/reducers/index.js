@@ -34,13 +34,6 @@ const places = handleActions(
         allIds: without(allIds, id),
       };
     },
-    // [actions.addTaskSuccess](state, { payload: { task } }) {
-    //   const { byId, allIds } = state;
-    //   return {
-    //     byId: { ...byId, [task.id]: task },
-    //     allIds: [task.id, ...allIds],
-    //   };
-    // },
   },
   { byId: {}, allIds: [] },
 );
