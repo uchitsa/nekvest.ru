@@ -2,11 +2,13 @@ import { createAction } from 'redux-actions';
 import axios from 'axios';
 import routes from '../routes';
 
-export const removePlace = createAction('PLACE_REMOVE');
+export const completePlace = createAction('PLACE_REMOVE');
 
 export const fetchPlacesRequest = createAction('PLACES_FETCH_REQUEST');
 export const fetchPlacesSuccess = createAction('PLACES_FETCH_SUCCESS');
 export const fetchPlacesFailure = createAction('PLACES_FETCH_FAILURE');
+
+export const incrementUserScore = createAction('USER_SET_SCORE');
 
 export const fetchPlaces = () => async (dispatch) => {
   dispatch(fetchPlacesRequest());

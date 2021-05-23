@@ -2,7 +2,7 @@ import { YMaps, Map, Placemark } from 'react-yandex-maps';
 import { connect } from 'react-redux';
 import { uniqueId } from 'lodash';
 import * as actions from '../../actions';
-import openPlacePopup from '../../common/openPlacePopup';
+import createPlacePopup from '../../common/createPlacePopup';
 import './Map.scss';
 
 const mapStateToProps = (state) => {
@@ -13,10 +13,11 @@ const mapStateToProps = (state) => {
 };
 
 const actionCreators = {
-  removePlace: actions.removePlace,
+  completePlace: actions.completePlace,
+  incrementUserScore: actions.incrementUserScore,
 };
 
-const AppMap = ({ places, removePlace }) => {
+const AppMap = ({ places, completePlace, incrementUserScore }) => {
   const { byId, allIds } = places;
 
   return (
@@ -25,18 +26,12 @@ const AppMap = ({ places, removePlace }) => {
         <YMaps>
           <Map
             className="Map"
-            defaultState={{ center: [50.591694, 36.587375], zoom: 16 }}
-            // instanceRef={(ref) => {
-            //   if (!ref) {
-            //     return;
-            //   }
-            //   ref.behaviors.disable('scrollZoom');
-            // }}
+            defaultState={{ center: [50.591694, 36.588375], zoom: 17 }}
           >
             {allIds.map((placeId) => {
               const place = byId[placeId];
-              const { name, coordinates } = place;
-              // console.log(byId[placeId]);
+              const { name, coordinates, type } = place;
+
               const placeMarkProps = {
                 modules: ['geoObject.addon.balloon', 'geoObject.addon.hint'],
                 geometry: coordinates,
@@ -45,8 +40,8 @@ const AppMap = ({ places, removePlace }) => {
                 },
                 options: {
                   iconLayout: 'default#image',
-                  iconImageHref: 'https://faw-x80.com/media/img/map_marker.png',
-                  iconImageSize: [60, 53],
+                  iconImageHref: `https://nekvest.ru/icons/${type}.svg`,
+                  iconImageSize: [60, 60],
                   iconImageOffset: [-22, -53],
                 },
               };
@@ -58,9 +53,10 @@ const AppMap = ({ places, removePlace }) => {
                       return;
                     }
                     ref.events.add('click', (e) => {
-                      openPlacePopup({
+                      createPlacePopup({
                         place,
-                        removePlace,
+                        completePlace,
+                        incrementUserScore,
                       });
                     });
                   }}

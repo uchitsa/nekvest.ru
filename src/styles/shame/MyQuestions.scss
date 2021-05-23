@@ -1,0 +1,75 @@
+.MyQuestions {
+  padding-top: get-spacer(3);
+  padding-bottom: get-spacer(5);
+}
+
+.MyQuestions__item {
+  position: relative;
+  background: #fff;
+  color: #444;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.3125rem 0.875rem 0 rgba(129, 129, 129, 0.2) !important;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+  width: 100%;
+
+  @include media-breakpoint-up('md') {
+    display: flex;
+  }
+
+  @include media-breakpoint-up('sm') {
+    height: 100%;
+  }
+}
+
+.MyQuestions__item > * {
+  position: relative;
+}
+
+.MyQuestions__item--with-photo .MyQuestions__title {
+  color: #fff;
+}
+
+.MyQuestions__item--with-photo .MyQuestions__icon {
+  fill: theme-color('white');
+}
+
+.MyQuestions__icon {
+  fill: theme-color('primary');
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.MyQuestions__btn-toggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.MyQuestions__btn {
+  text-decoration: none;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  background-color: transparent;
+}
+
+.MyQuestions__img {
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+}
+
+.MyQuestions__content {
+  flex-grow: 1;
+  padding: 2rem;
+}
+
+.MyQuestions__text p {
+  margin: 0;
+}
+
+.MyQuestions__text p + p {
+  margin-top: get-spacer(2);
+}

@@ -12,6 +12,7 @@
   border-top: 1px solid $border-color;
 
   @include media-breakpoint-up('sm') {
+    position: absolute;
     top: 0;
     bottom: auto;
 

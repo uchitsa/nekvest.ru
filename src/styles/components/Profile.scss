@@ -17,3 +17,35 @@
 
   font-weight: 700;
 }
+
+.Profile__info {
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: get-spacer(4);
+  padding: 2rem;
+
+  box-shadow: 0 0.3125rem 0.875rem 0 rgba(129, 129, 129, 0.2);
+}
+
+.Profile__level-progoress-wrapper {
+  height: 20px;
+  overflow: hidden;
+
+  background-color: #efefef;
+
+  border-radius: 5px;
+}
+
+.Profile__score {
+  margin-bottom: get-spacer(3);
+}
+
+.Profile__score-value {
+  text-align: right;
+}
+
+.Profile__level-progoress {
+  height: 100%;
+
+  background-color: #02d833;
+}

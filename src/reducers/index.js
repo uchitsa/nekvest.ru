@@ -2,6 +2,7 @@ import { keyBy, omit, without } from 'lodash';
 import { combineReducers } from 'redux';
 import { handleActions } from 'redux-actions';
 import * as actions from '../actions';
+import user from './user';
 
 const placesFetchingState = handleActions(
   {
@@ -26,7 +27,7 @@ const places = handleActions(
         allIds: payload.places.map((t) => t.id), // eslint-disable-line no-underscore-dangle
       };
     },
-    [actions.removePlace](state, { payload: { id } }) {
+    [actions.completePlace](state, { payload: { id } }) {
       const { byId, allIds } = state;
       return {
         byId: omit(byId, id),
@@ -40,13 +41,6 @@ const places = handleActions(
     //     allIds: [task.id, ...allIds],
     //   };
     // },
-    // [actions.removeTaskSuccess](state, { payload: { id } }) {
-    //   const { byId, allIds } = state;
-    //   return {
-    //     byId: _.omit(byId, id),
-    //     allIds: _.without(allIds, id),
-    //   };
-    // },
   },
   { byId: {}, allIds: [] },
 );
@@ -54,4 +48,5 @@ const places = handleActions(
 export default combineReducers({
   places,
   placesFetchingState,
+  user,
 });

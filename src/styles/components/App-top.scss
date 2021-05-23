@@ -1,5 +1,6 @@
 .App-top {
-  @extend .py-3;
+  padding-top: get-spacer(4);
+  padding-bottom: get-spacer(3);
 }
 
 .App-top__container {
