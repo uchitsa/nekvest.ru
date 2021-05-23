@@ -31,7 +31,10 @@ const AppMap = ({ places }) => {
             className="Map"
             defaultState={{ center: [50.595694, 36.587375], zoom: 9 }}
             instanceRef={(ref) => {
-              ref && ref.behaviors.disable('scrollZoom');
+              if (!ref) {
+                return;
+              }
+              ref.behaviors.disable('scrollZoom');
             }}
           >
             {allIds.map((placeId) => {
