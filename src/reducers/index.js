@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import { keyBy, uniqueId } from 'lodash';
 import { combineReducers } from 'redux';
 import { handleActions } from 'redux-actions';
 import * as actions from '../actions';
@@ -22,20 +22,14 @@ const places = handleActions(
   {
     [actions.fetchPlacesSuccess](state, { payload }) {
       const placesMapped = payload.places.map((place) => {
-        const {
-          _id,
-          name,
-          mapPosition: { coordinates },
-        } = place;
         return {
-          _id,
-          name,
-          coordinates,
+          id: uniqueId(),
+          ...place,
         };
       });
       return {
-        byId: _.keyBy(placesMapped, '_id'),
-        allIds: placesMapped.map((t) => t._id), // eslint-disable-line no-underscore-dangle
+        byId: keyBy(placesMapped, 'id'),
+        allIds: placesMapped.map((t) => t.id), // eslint-disable-line no-underscore-dangle
       };
     },
     // [actions.addTaskSuccess](state, { payload: { task } }) {

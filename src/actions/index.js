@@ -11,7 +11,7 @@ export const fetchPlaces = () => async (dispatch) => {
   try {
     const url = routes.placesUrl();
     const response = await axios.get(url);
-    dispatch(fetchPlacesSuccess({ places: response.data.places }));
+    dispatch(fetchPlacesSuccess({ places: response.data }));
   } catch (e) {
     dispatch(fetchPlacesFailure());
     throw e;

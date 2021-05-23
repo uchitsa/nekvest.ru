@@ -1,0 +1,22 @@
+.place-popup {
+  max-width: 800px;
+  margin: 0 auto;
+  padding-top: get-spacer(3);
+}
+
+.place-popup__img {
+  margin-top: get-spacer(4);
+}
+
+.place-popup__text {
+  margin-top: get-spacer(3);
+}
+
+.places__video {
+  width: 100%;
+  height: 250px;
+
+  @include media-breakpoint-up('sm') {
+    height: 400px;
+  }
+}

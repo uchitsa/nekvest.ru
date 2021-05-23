@@ -1,0 +1,48 @@
+.tingle-modal {
+  padding-top: 0 !important;
+
+  background: rgba(0, 0, 0, 0.4) !important;
+}
+
+.tingle-modal-box {
+  width: 100% !important;
+  min-height: 100% !important;
+
+  border-radius: 0 !important;
+}
+
+.tingle-modal--overflow {
+  padding-top: 0 !important;
+}
+
+.tingle-modal__close {
+  position: absolute !important;
+  top: 0.7rem !important;
+  right: 0.7rem !important;
+  left: auto !important;
+  z-index: 1000;
+
+  width: 2rem !important;
+  height: 2rem !important;
+  margin: 0 !important;
+  padding: 0;
+
+  color: #b0b0b0 !important;
+
+  background-color: transparent !important;
+  border: none;
+
+  @include media-breakpoint-up('sm') {
+    top: 1.5rem !important;
+    right: 1.5rem !important;
+  }
+}
+
+.tingle-modal__closeLabel {
+  display: none !important;
+}
+
+.tingle-modal-box__content {
+  padding-right: 1.25rem !important;
+  padding-left: 1.25rem !important;
+}
