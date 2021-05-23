@@ -17,6 +17,7 @@ import logo from '../images/logo.svg';
 import Map from './Map/Map';
 import Profile from './Profile';
 import debounce from '../helpers/debounce';
+import avatar from '../images/avatar.jpg';
 
 const setCssVhProperty = () => {
   const vh = window.innerHeight * 0.01;
@@ -45,19 +46,19 @@ const App = () => {
               </a>
               <nav className="App-header__nav">
                 <ul className="App-header__list">
-                  <li className="App-header__nav-item">
+                  {/* <li className="App-header__nav-item">
                     <NavLink className="App-header__nav-link" to="/about">
                       <Star className="App-header__icon" />
                       <span className="App-header__link-text">Топ-рейтинг</span>
                     </NavLink>
-                  </li>
+                  </li> */}
                   <li className="App-header__nav-item">
                     <NavLink className="App-header__nav-link" to="/popular">
                       <Heart className="App-header__icon" />
                       <span className="App-header__link-text">Избранное</span>
                     </NavLink>
                   </li>
-                  <li className="App-header__nav-item App-header__nav-item--main">
+                  <li className="App-header__nav-item">
                     <NavLink className="App-header__nav-link" to="/">
                       <GeoAlt className="App-header__icon" />
                       <span className="App-header__link-text">Карта</span>
@@ -71,7 +72,11 @@ const App = () => {
                   </li>
                   <li className="App-header__nav-item">
                     <NavLink className="App-header__nav-link" to="/profile">
-                      <Person className="App-header__icon" />
+                      <img
+                        className="App-header__avatar Avatar"
+                        src={avatar}
+                        alt="Аватар"
+                      />
                       <span className="App-header__link-text">Профиль</span>
                     </NavLink>
                   </li>

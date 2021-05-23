@@ -1,4 +1,4 @@
-import { keyBy, uniqueId } from 'lodash';
+import { keyBy, omit, without } from 'lodash';
 import { combineReducers } from 'redux';
 import { handleActions } from 'redux-actions';
 import * as actions from '../actions';
@@ -21,15 +21,16 @@ const placesFetchingState = handleActions(
 const places = handleActions(
   {
     [actions.fetchPlacesSuccess](state, { payload }) {
-      const placesMapped = payload.places.map((place) => {
-        return {
-          id: uniqueId(),
-          ...place,
-        };
-      });
       return {
-        byId: keyBy(placesMapped, 'id'),
-        allIds: placesMapped.map((t) => t.id), // eslint-disable-line no-underscore-dangle
+        byId: keyBy(payload.places, 'id'),
+        allIds: payload.places.map((t) => t.id), // eslint-disable-line no-underscore-dangle
+      };
+    },
+    [actions.removePlace](state, { payload: { id } }) {
+      const { byId, allIds } = state;
+      return {
+        byId: omit(byId, id),
+        allIds: without(allIds, id),
       };
     },
     // [actions.addTaskSuccess](state, { payload: { task } }) {

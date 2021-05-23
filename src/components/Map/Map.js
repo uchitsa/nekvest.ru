@@ -13,12 +13,12 @@ const mapStateToProps = (state) => {
 };
 
 const actionCreators = {
-  updateNewTaskText: actions.fetchPlaces,
+  removePlace: actions.removePlace,
 };
 
-const AppMap = ({ places }) => {
+const AppMap = ({ places, removePlace }) => {
   const { byId, allIds } = places;
-  console.log(places);
+
   return (
     <>
       {allIds.length > 0 && (
@@ -36,7 +36,7 @@ const AppMap = ({ places }) => {
             {allIds.map((placeId) => {
               const place = byId[placeId];
               const { name, coordinates } = place;
-              console.log(byId[placeId]);
+              // console.log(byId[placeId]);
               const placeMarkProps = {
                 modules: ['geoObject.addon.balloon', 'geoObject.addon.hint'],
                 geometry: coordinates,
@@ -58,7 +58,10 @@ const AppMap = ({ places }) => {
                       return;
                     }
                     ref.events.add('click', (e) => {
-                      openPlacePopup(place);
+                      openPlacePopup({
+                        place,
+                        removePlace,
+                      });
                     });
                   }}
                   key={uniqueId()}

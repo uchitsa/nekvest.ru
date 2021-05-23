@@ -75,15 +75,17 @@
 
 .App-header__nav-item {
   flex-grow: 1;
+  width: 25%;
 
   @include media-breakpoint-up('sm') {
     flex-grow: 0;
+    width: auto;
   }
 }
 
 .App-header__nav-link {
   display: block;
-  padding: 0.5rem 1rem;
+  padding: 0.8rem 1rem;
 
   text-align: center;
   text-decoration: none;
@@ -98,16 +100,7 @@
   text-decoration: none;
 }
 
-.App-header__nav-item--main {
-  @include media-breakpoint-up('sm') {
-    order: -1;
-  }
-
-  .App-header__icon {
-    @include media-breakpoint-down('xs') {
-      $size: 2.5em;
-      width: $size;
-      height: $size;
-    }
-  }
+.App-header__avatar {
+  width: var(--app-header-nav-icon-size);
+  height: var(--app-header-nav-icon-size);
 }
